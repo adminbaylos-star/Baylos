@@ -1,0 +1,1 @@
+Tahap 17: buka web/admin-orders.html setelah konfigurasi Supabase. Filter, ekspor CSV, salin ID, cetak ringkasan, dan draf resi tersedia. Draf resi lokal tidak memperbarui database. SQL ditunda sesuai rencana. Baca TAHAP17-PENGELOLAAN-PESANAN-UI.md.

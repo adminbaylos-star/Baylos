@@ -1,0 +1,10 @@
+{
+  "name": "baylos-marketplace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Baylos marketplace frontend validation scripts",
+  "scripts": {
+    "test": "node tests/validation.test.cjs && node tests/auth.test.cjs",
+    "check:js": "node scripts/check-js.cjs"
+  }
+}

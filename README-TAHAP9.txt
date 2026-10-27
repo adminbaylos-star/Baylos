@@ -1,0 +1,1 @@
+Baylos Tahap 9: pembaruan etalase dan galeri foto. Baca TAHAP9-ETALASE-GALERI-ZOOM.md sebelum memasang. Gunakan branch pengujian dan pertahankan konfigurasi Supabase yang sudah benar. Checkout dan integrasi eksternal belum dinyatakan selesai.

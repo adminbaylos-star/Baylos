@@ -1,0 +1,1 @@
+Baylos akun/admin: upload SELURUH isi paket ke branch supabase-integration, terutama index.html dan web/baylos-account.js. Jangan ubah main. Pengeditan profil memerlukan kebijakan RLS UPDATE profiles milik sendiri; bila ditolak, tampil pesan error. Belum diuji login langsung pada Supabase.
