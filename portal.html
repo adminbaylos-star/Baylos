@@ -405,7 +405,7 @@
                 </h1>
 
                 <p class="mt-6 text-zinc-300 leading-7 max-w-lg">
-                    Satu portal untuk wholesale ordering, reseller pricing,
+                    Satu portal untuk belanja, berbagi tautan afiliasi,
                     dan premium marketing assets.
                 </p>
             </div>
@@ -424,13 +424,13 @@
                 <div class="glass rounded-3xl p-7 sm:p-9 shadow-luxury">
                     <div class="mb-8">
                         <p class="text-gold text-xs font-bold uppercase tracking-[0.2em]">
-                            Partner Access
+                            Akun Baylos
                         </p>
                         <h2 class="font-display text-3xl mt-2">
                             Welcome back.
                         </h2>
                         <p class="text-zinc-500 text-sm mt-2">
-                            Masuk ke portal reseller Baylos Anda.
+                            Masuk ke akun Baylos Anda.
                         </p>
                     </div>
 
@@ -510,13 +510,13 @@
         type="button"
         onclick="openAuthModal('customer')"
         class="btn-gold h-11 rounded-xl text-sm font-semibold">
-        Daftar Pelanggan
+        Daftar Pengguna
     </button>
 
     <a
         href="web/affiliate-register.html"
         class="btn-dark h-11 rounded-xl text-sm font-semibold flex items-center justify-center text-center">
-        Pendaftaran Afiliasi Pengguna
+        Daftar Afiliasi
     </a>
                         </div>
                         <button type="button" onclick="openAuthModal('forgot')" class="h-11 rounded-xl border border-white/10 text-sm font-semibold text-zinc-300 hover:border-gold/30 hover:text-gold">Reset Password</button>
@@ -524,7 +524,7 @@
                 </div>
 
                 <p class="text-center text-xs text-zinc-600 mt-7">
-                    © 2023 Baylos. Wholesale Partner Portal.
+                    © Baylos Marketplace.
                 </p>
             </div>
         </div>
@@ -537,18 +537,14 @@
   <div class="min-h-full flex items-center justify-center">
     <div class="w-full max-w-lg glass rounded-3xl border border-white/10 p-6 sm:p-8 relative">
       <button type="button" onclick="closeAuthModal()" class="absolute right-5 top-5 w-9 h-9 rounded-xl btn-dark flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
-      <p id="authModalEyebrow" class="text-gold text-[10px] uppercase tracking-[.2em] font-bold">Partner Access</p>
+      <p id="authModalEyebrow" class="text-gold text-[10px] uppercase tracking-[.2em] font-bold">Akun Baylos</p>
       <h2 id="authModalTitle" class="font-display text-3xl mt-2">Daftar Pengguna</h2>
-      <p id="authModalDesc" class="text-sm text-zinc-500 mt-2">Buat akun partner Baylos.</p>
+      <p id="authModalDesc" class="text-sm text-zinc-500 mt-2">Buat akun Baylos untuk berbelanja dan bergabung dengan program afiliasi.</p>
       <form id="authModalForm" class="space-y-4 mt-7">
-       <div><label class="text-xs text-zinc-400">Full Name</label><input id="registerName" required class="input-luxury h-12 px-4 text-sm mt-2" placeholder="Nama lengkap"></div>
-         <div id="registerFields" class="space-y-4">
-          <div><label class="text-xs text-zinc-400">Business / Store Name</label><input id="registerBusiness" required class="input-luxury h-12 px-4 text-sm mt-2" placeholder="Nama bisnis / toko"></div>
-          <div class="grid sm:grid-cols-2 gap-4"><div><label class="text-xs text-zinc-400">WhatsApp</label><input id="registerWhatsapp" required class="input-luxury h-12 px-4 text-sm mt-2" placeholder="08xxxxxxxxxx"></div><div><label class="text-xs text-zinc-400">City</label><input id="registerCity" required class="input-luxury h-12 px-4 text-sm mt-2" placeholder="Kota"></div></div>
-          <div><label class="text-xs text-zinc-400">Instagram / Social Media</label><input id="registerSocial" class="input-luxury h-12 px-4 text-sm mt-2" placeholder="@username atau link"></div>
-        </div>
+       <div id="registerNameField"><label class="text-xs text-zinc-400">Nama lengkap</label><input id="registerName" required class="input-luxury h-12 px-4 text-sm mt-2" placeholder="Nama lengkap"></div>
+         <div id="registerFields" class="hidden"></div>
         <div><label class="text-xs text-zinc-400">Email</label><input id="authModalEmail" type="email" class="input-luxury h-12 px-4 text-sm mt-2" placeholder="nama@email.com" required></div>
-        <div id="registerPasswordFields" class="space-y-4"><div><label class="text-xs text-zinc-400">Password</label><input id="authModalPassword" type="password" class="input-luxury h-12 px-4 text-sm mt-2" placeholder="Minimal 6 karakter"></div><div><label class="text-xs text-zinc-400">Confirm Password</label><input id="authModalPasswordConfirm" type="password" class="input-luxury h-12 px-4 text-sm mt-2" placeholder="Ulangi password"></div><label class="flex gap-2 text-xs text-zinc-500 items-start"><input id="registerTerms" type="checkbox" class="mt-0.5 accent-yellow-500"><span>Saya menyetujui Partner Terms Baylos.</span></label></div>
+        <div id="registerPasswordFields" class="space-y-4"><div><label class="text-xs text-zinc-400">Password</label><input id="authModalPassword" type="password" class="input-luxury h-12 px-4 text-sm mt-2" placeholder="Minimal 6 karakter"></div><div><label class="text-xs text-zinc-400">Confirm Password</label><input id="authModalPasswordConfirm" type="password" class="input-luxury h-12 px-4 text-sm mt-2" placeholder="Ulangi password"></div><label class="flex gap-2 text-xs text-zinc-500 items-start"><input id="registerTerms" type="checkbox" class="mt-0.5 accent-yellow-500"><span>Saya menyetujui Syarat dan Ketentuan Baylos.</span></label></div>
         <button id="authModalSubmit" class="btn-gold w-full h-12 rounded-xl font-bold">Daftar Pengguna</button>
       </form>
     </div>
@@ -1570,85 +1566,9 @@
 </div>
 
 <!-- PROFILE MODAL -->
-    <!-- FORMULIR PENGAJUAN RESELLER BAYLOS -->
-<div id="baylosResellerApplicationModal"
-     class="hidden fixed inset-0 z-[150] modal-backdrop p-4 overflow-y-auto">
-
-    <div class="min-h-full flex items-center justify-center py-6">
-
-        <div class="w-full max-w-xl glass rounded-3xl p-6">
-
-            <div class="flex justify-between items-center mb-5">
-                <h2 class="text-xl font-bold">
-                    Pengajuan Reseller Baylos
-                </h2>
-
-                <button type="button"
-                        onclick="closeBaylosResellerApplication()">
-                    ✕
-                </button>
-            </div>
-
-            <form onsubmit="submitBaylosResellerApplication(event)"
-                  class="space-y-4">
-
-                <input name="business_name"
-                       placeholder="Nama Usaha / Toko"
-                       class="input-luxury w-full p-3"
-                       required>
-
-                <input name="phone"
-                       type="tel"
-                       placeholder="Nomor WhatsApp Aktif"
-                       class="input-luxury w-full p-3"
-                       required>
-
-                <input name="province"
-                       placeholder="Provinsi"
-                       class="input-luxury w-full p-3"
-                       required>
-
-                <input name="regency"
-                       placeholder="Kabupaten / Kota"
-                       class="input-luxury w-full p-3"
-                       required>
-
-                <input name="district"
-                       placeholder="Kecamatan"
-                       class="input-luxury w-full p-3"
-                       required>
-
-                <input name="village"
-                       placeholder="Kelurahan / Desa"
-                       class="input-luxury w-full p-3"
-                       required>
-
-                <textarea name="street_address"
-                          placeholder="Nama Jalan, Nomor Rumah, RT/RW"
-                          class="input-luxury w-full p-3"
-                          rows="3"
-                          required></textarea>
-
-                <input name="postal_code"
-                       placeholder="Kode Pos"
-                       class="input-luxury w-full p-3"
-                       required>
-
-                <input name="social_media"
-                       placeholder="Media Sosial (Opsional)"
-                       class="input-luxury w-full p-3">
-
-                <button type="submit"
-                        class="btn-gold w-full p-3 rounded-xl font-bold">
-                    Kirim Pengajuan Reseller
-                </button>
-
-            </form>
-        </div>
-    </div>
-</div>
+    <!-- Reseller registration removed; affiliate registration is available from the user account. -->
 <div id="profileModal" class="hidden fixed inset-0 z-[140] modal-backdrop p-4 overflow-y-auto">
- <div class="min-h-full flex items-center justify-center"><div class="w-full max-w-lg glass rounded-3xl p-6 sm:p-8 relative"><button onclick="closeProfileModal()" class="absolute right-5 top-5 w-9 h-9 rounded-xl btn-dark flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button><p class="text-gold text-[10px] uppercase tracking-[.2em] font-bold">Partner Profile</p><h2 class="font-display text-3xl mt-2">Profil Reseller</h2><div class="space-y-4 mt-7"><div><label class="text-xs text-zinc-500">Nama</label><input id="profileName" class="input-luxury h-12 px-4 text-sm mt-2"></div><div><label class="text-xs text-zinc-500">Email</label><input id="profileEmail" disabled class="input-luxury h-12 px-4 text-sm mt-2 opacity-60"></div><div><label class="text-xs text-zinc-500">Tier</label><select id="profileTier" class="input-luxury h-12 px-4 text-sm mt-2"><option value="silver">Silver — 20%</option><option value="gold">Gold — 30%</option><option value="vip">VIP — 40%</option></select></div><button onclick="saveProfile()" class="btn-gold w-full h-12 rounded-xl font-bold">Simpan Profil</button></div></div></div>
+ <div class="min-h-full flex items-center justify-center"><div class="w-full max-w-lg glass rounded-3xl p-6 sm:p-8 relative"><button onclick="closeProfileModal()" class="absolute right-5 top-5 w-9 h-9 rounded-xl btn-dark flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button><p class="text-gold text-[10px] uppercase tracking-[.2em] font-bold">Profil Pengguna</p><h2 class="font-display text-3xl mt-2">Profil Pengguna</h2><div class="space-y-4 mt-7"><div><label class="text-xs text-zinc-500">Nama</label><input id="profileName" class="input-luxury h-12 px-4 text-sm mt-2"></div><div><label class="text-xs text-zinc-500">Email</label><input id="profileEmail" disabled class="input-luxury h-12 px-4 text-sm mt-2 opacity-60"></div><div><label class="text-xs text-zinc-500">Tier</label><select id="profileTier" class="input-luxury h-12 px-4 text-sm mt-2"><option value="silver">Silver — 20%</option><option value="gold">Gold — 30%</option><option value="vip">VIP — 40%</option></select></div><button onclick="saveProfile()" class="btn-gold w-full h-12 rounded-xl font-bold">Simpan Profil</button></div></div></div>
 </div>
 
 <!-- ========================================================= -->
@@ -2049,7 +1969,6 @@ async function restoreSupabaseSession() {
 
         showApplication();
 
-await submitPendingBaylosResellerApplication();
 
     } catch (error) {
         console.error(
@@ -2098,152 +2017,61 @@ restoreSupabaseSession();
 
 async function handleAuthModalSubmit(event) {
     event.preventDefault();
-
-    const email = document.getElementById("authModalEmail")
-        .value.trim().toLowerCase();
-
     const api = window.BaylosAPI;
-
-    if (!api?.ready) {
-        showToast("Koneksi Supabase belum siap.", "error");
-        return;
-    }
+    const email = document.getElementById("authModalEmail").value.trim().toLowerCase();
+    const submitButton = document.getElementById("authModalSubmit");
+    if (!api?.ready) { showToast("Koneksi Supabase belum siap.", "error"); return; }
 
     if (authModalMode === "forgot") {
+        if (!email) { showToast("Masukkan email akun Anda.", "warning"); return; }
+        submitButton.disabled = true;
         try {
-            const { error } =
-                await api.client.auth.resetPasswordForEmail(email, {
-                    redirectTo:
-                        window.location.origin +
-                        window.location.pathname
-                });
-
+            const redirectTo = new URL("portal.html", window.location.href).href;
+            const { error } = await api.client.auth.resetPasswordForEmail(email, { redirectTo });
             if (error) throw error;
-
             closeAuthModal();
-
-            showToast(
-                "Jika email terdaftar, instruksi reset akan dikirim.",
-                "success"
-            );
-        } catch (error) {
-            showToast(error.message || "Reset password gagal.", "error");
-        }
-
+            showToast("Jika email terdaftar, instruksi pemulihan kata sandi akan dikirim.", "success");
+        } catch (error) { showToast(error.message || "Permintaan pemulihan gagal.", "error"); }
+        finally { submitButton.disabled = false; }
         return;
     }
 
-    const isReseller = authModalMode === "reseller";
-    const isCustomer = authModalMode === "customer";
-
-    if (!isReseller && !isCustomer) {
-        showToast("Jenis pendaftaran tidak valid.", "error");
+    if (authModalMode === "reset") {
+        const password = document.getElementById("authModalPassword").value;
+        const confirm = document.getElementById("authModalPasswordConfirm").value;
+        if (password.length < 8) { showToast("Kata sandi minimal 8 karakter.", "warning"); return; }
+        if (password !== confirm) { showToast("Konfirmasi kata sandi tidak sama.", "warning"); return; }
+        submitButton.disabled = true;
+        try {
+            const { error } = await api.client.auth.updateUser({ password });
+            if (error) throw error;
+            document.getElementById("authModalForm").reset();
+            closeAuthModal();
+            showToast("Kata sandi berhasil diperbarui. Silakan masuk kembali bila diminta.", "success");
+        } catch (error) { showToast(error.message || "Kata sandi belum dapat diperbarui.", "error"); }
+        finally { submitButton.disabled = false; }
         return;
     }
 
-    const name = document.getElementById("registerName")
-        .value.trim();
-
-    const password = document.getElementById("authModalPassword")
-        .value;
-
-    const confirm = document.getElementById(
-        "authModalPasswordConfirm"
-    ).value;
-
-    const business = document.getElementById("registerBusiness")
-        .value.trim();
-
-    const whatsapp = document.getElementById("registerWhatsapp")
-        .value.trim();
-
-    const city = document.getElementById("registerCity")
-        .value.trim();
-
-    const social = document.getElementById("registerSocial")
-        .value.trim();
-
-    if (!name || !email || !password || !confirm) {
-        showToast("Lengkapi data pendaftaran.", "warning");
-        return;
-    }
-
-    if (isReseller && (!business || !whatsapp || !city)) {
-        showToast(
-            "Lengkapi nama usaha, WhatsApp, dan kota.",
-            "warning"
-        );
-        return;
-    }
-
-    if (password.length < 8) {
-        showToast("Password minimal 8 karakter.", "warning");
-        return;
-    }
-
-    if (password !== confirm) {
-        showToast("Konfirmasi password tidak sama.", "warning");
-        return;
-    }
-
-    if (!document.getElementById("registerTerms").checked) {
-        showToast("Anda harus menyetujui ketentuan Baylos.", "warning");
-        return;
-    }
-
-    const submitButton = document.getElementById("authModalSubmit");
-
-    submitButton.disabled = true;
-    submitButton.textContent = "Memproses pendaftaran...";
-
+    if (authModalMode !== "customer") { showToast("Gunakan pendaftaran pengguna. Pendaftaran reseller sudah dihentikan.", "warning"); return; }
+    const name = document.getElementById("registerName").value.trim();
+    const password = document.getElementById("authModalPassword").value;
+    const confirm = document.getElementById("authModalPasswordConfirm").value;
+    if (!name || !email || !password || !confirm) { showToast("Lengkapi nama, email, dan kata sandi.", "warning"); return; }
+    if (password.length < 8) { showToast("Kata sandi minimal 8 karakter.", "warning"); return; }
+    if (password !== confirm) { showToast("Konfirmasi kata sandi tidak sama.", "warning"); return; }
+    if (!document.getElementById("registerTerms").checked) { showToast("Anda harus menyetujui syarat dan ketentuan Baylos.", "warning"); return; }
+    submitButton.disabled = true; submitButton.textContent = "Membuat akun…";
     try {
         const result = await api.signUp(email, password, name);
-
-        if (!result?.user) {
-            throw new Error("Pendaftaran gagal.");
-        }
-
-        if (isReseller) {
-            sessionStorage.setItem(
-                "baylosPendingResellerApplication",
-                JSON.stringify({
-                    userId: result.user.id,
-                    business,
-                    whatsapp,
-                    city,
-                    social
-                })
-            );
-        } else {
-            sessionStorage.removeItem(
-                "baylosPendingResellerApplication"
-            );
-        }
-
+        if (!result?.user) throw new Error("Pendaftaran belum berhasil.");
         closeAuthModal();
-
-        showToast(
-            "Akun berhasil didaftarkan. Periksa email untuk verifikasi, lalu login.",
-            "success"
-        );
-
+        showToast("Akun berhasil dibuat. Periksa email untuk verifikasi, lalu masuk ke Baylos.", "success");
     } catch (error) {
         console.error("Pendaftaran Baylos gagal:", error);
-
-        showToast(
-            error.message || "Pendaftaran gagal.",
-            "error"
-        );
-
-    } finally {
-        submitButton.disabled = false;
-        submitButton.textContent =
-            isReseller
-                ? "Buat Akun Reseller"
-                : "Buat Akun Pelanggan";
-    }
+        showToast(error.message || "Pendaftaran gagal.", "error");
+    } finally { submitButton.disabled = false; submitButton.textContent = "Buat Akun Pengguna"; }
 }
-            
 
 function showRegistrationSuccess(){
   const existing=document.getElementById('registrationSuccess');
@@ -2361,7 +2189,6 @@ function showRegistrationSuccess(){
 
         showApplication();
 
-await submitPendingBaylosResellerApplication();
 
 showToast(
     `Selamat datang, ${currentUser.name}.`,
@@ -2376,106 +2203,6 @@ showToast(
     }
 }
 
-function openBaylosResellerApplication() {
-    if (!currentUser) {
-        showToast("Silakan login terlebih dahulu.", "warning");
-        return;
-    }
-
-    if (currentUser.role === "admin") {
-        showToast("Akun admin tidak memerlukan pengajuan reseller.", "warning");
-        return;
-    }
-
-    if (currentUser.reseller_status === "pending") {
-        showToast("Pengajuan Anda sedang menunggu persetujuan admin.", "warning");
-        return;
-    }
-
-    if (currentUser.reseller_status === "approved") {
-        showToast("Akun Anda sudah menjadi reseller.", "success");
-        return;
-    }
-
-    document.getElementById("baylosResellerApplicationModal")
-        ?.classList.remove("hidden");
-}
-
-function closeBaylosResellerApplication() {
-    document.getElementById("baylosResellerApplicationModal")
-        ?.classList.add("hidden");
-}
-
-async function submitBaylosResellerApplication(event) {
-    event.preventDefault();
-
-    const form = event.currentTarget;
-    const button = form.querySelector('button[type="submit"]');
-
-    if (button.disabled) return;
-
-    button.disabled = true;
-    button.textContent = "Mengirim pengajuan...";
-
-    try {
-        const api = window.BaylosAPI;
-
-        if (!api?.ready) {
-            throw new Error("Supabase belum terhubung.");
-        }
-
-        const fields = new FormData(form);
-
-        const params = {
-            p_business_name: fields.get("business_name")?.trim(),
-            p_phone: fields.get("phone")?.trim(),
-            p_city: fields.get("regency")?.trim(),
-            p_social_media: fields.get("social_media")?.trim() || "",
-            p_province: fields.get("province")?.trim(),
-            p_regency: fields.get("regency")?.trim(),
-            p_district: fields.get("district")?.trim(),
-            p_village: fields.get("village")?.trim(),
-            p_street_address: fields.get("street_address")?.trim(),
-            p_postal_code: fields.get("postal_code")?.trim()
-        };
-
-        const { error } = await api.client.rpc(
-            "baylos_apply_reseller",
-            params
-        );
-
-        if (error) throw error;
-
-        const profile = await api.profile();
-
-        if (currentUser && profile) {
-            currentUser.reseller_status = profile.reseller_status;
-        }
-
-        sessionStorage.removeItem(
-            "baylosPendingResellerApplication"
-        );
-
-        closeBaylosResellerApplication();
-
-        showToast(
-            "Pengajuan berhasil dikirim. Menunggu persetujuan admin.",
-            "success"
-        );
-
-    } catch (error) {
-        console.error("Pengajuan reseller gagal:", error);
-
-        showToast(
-            error.message || "Gagal mengirim pengajuan.",
-            "error"
-        );
-
-    } finally {
-        button.disabled = false;
-        button.textContent = "Kirim Pengajuan Reseller";
-    }
-}
 function showApplication() {
 
     $("#loginScreen").classList.add("hidden");
@@ -3791,59 +3518,35 @@ function initializeUserMenu() {
 /* ============================================================
    EXTENDED PORTAL WORKSPACES
    ============================================================ */
-let authModalMode = 'register';
+let authModalMode = 'customer';
 function openAuthModal(mode) {
-    authModalMode = mode;
-
+    authModalMode = mode === 'forgot' || mode === 'reset' ? mode : 'customer';
     const modal = document.getElementById("authModal");
-    const isCustomer = mode === "customer";
-    const isReseller = mode === "reseller";
-    const isRegister = isCustomer || isReseller;
-
+    const isForgot = authModalMode === 'forgot';
+    const isReset = authModalMode === 'reset';
+    const isRegister = authModalMode === 'customer';
     modal.classList.remove("hidden");
-
-    document.getElementById("authModalTitle").textContent =
-        isCustomer ? "Daftar Pelanggan" :
-        isReseller ? "Daftar Reseller" :
-        "Reset Password";
-
-    document.getElementById("authModalDesc").textContent =
-        isCustomer
-            ? "Buat akun pelanggan Baylos untuk menyimpan riwayat pesanan."
-            : isReseller
-            ? "Buat akun terlebih dahulu, lalu ajukan reseller setelah login."
-            : "Masukkan email untuk menerima instruksi reset password.";
-
-    document.getElementById("authModalSubmit").textContent =
-        isCustomer ? "Buat Akun Pelanggan" :
-        isReseller ? "Buat Akun Reseller" :
-        "Kirim Instruksi Reset";
-
-    document.getElementById("registerFields")
-        .classList.toggle("hidden", !isReseller);
-
-    document.getElementById("registerPasswordFields")
-        .classList.toggle("hidden", !isRegister);
-
-    const nameField = document.getElementById("registerName");
-
-    if (nameField) {
-        nameField.required = isRegister;
-    }
-
-    ["registerBusiness", "registerWhatsapp", "registerCity"].forEach(id => {
+    document.getElementById("authModalTitle").textContent = isForgot ? "Lupa Kata Sandi" : isReset ? "Buat Kata Sandi Baru" : "Daftar Pengguna";
+    document.getElementById("authModalDesc").textContent = isForgot ? "Masukkan email untuk menerima tautan pemulihan." : isReset ? "Buat kata sandi baru untuk akun Baylos Anda." : "Buat akun Baylos untuk berbelanja dan bergabung dengan program afiliasi.";
+    document.getElementById("authModalSubmit").textContent = isForgot ? "Kirim Tautan Pemulihan" : isReset ? "Simpan Kata Sandi Baru" : "Buat Akun Pengguna";
+    document.getElementById("registerFields").classList.add("hidden");
+    document.getElementById("registerPasswordFields").classList.toggle("hidden", isForgot);
+    document.getElementById("registerNameField").classList.toggle("hidden", !isRegister);
+    document.getElementById("registerName").required = isRegister;
+    ["registerBusiness", "registerWhatsapp", "registerCity", "registerSocial"].forEach(id => {
         const field = document.getElementById(id);
-        if (field) field.required = isReseller;
+        if (field) field.required = false;
     });
-
-    const terms = document.getElementById("registerTerms");
-
-    if (terms) {
-        terms.required = isRegister;
-    }
-
+    document.getElementById("authModalEmail").closest('div').classList.toggle('hidden', isReset);
+    document.getElementById("authModalEmail").required = !isReset;
+    document.getElementById("authModalPassword").required = !isForgot;
+    document.getElementById("authModalPasswordConfirm").required = !isForgot;
+    document.getElementById("registerTerms").closest('label').classList.toggle('hidden', !isRegister);
+    document.getElementById("registerTerms").required = isRegister;
+    document.getElementById("authModalEyebrow").textContent = isRegister ? "Akun Pengguna" : "Keamanan Akun";
     lucide.createIcons();
 }
+
 function closeAuthModal(){$("#authModal").classList.add('hidden');}
 function showResellerView(view){
   const dash=$("#dashboardView"), cat=$("#catalogView"), orders=$("#ordersView"); dash.classList.toggle('hidden',view!=='dashboard'); cat.classList.toggle('hidden',view!=='catalog'); orders.classList.toggle('hidden',view!=='orders');
@@ -5174,6 +4877,6 @@ function openBaylosImageZoom(imageUrl) {
     };
 }
 </script>
-</body>
+<script src="web/affiliate-tracking.js"></script></body>
 </html>
 
