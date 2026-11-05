@@ -1,3 +1,4 @@
+
 /* Baylos Supabase integration module. Does not override existing demo UI. */
 (function () {
   'use strict';
@@ -251,18 +252,30 @@
     return data.order;
   }
 
-  // Biteship area search: uses the logged-in Supabase session.
-  // The Biteship API key stays on the Edge Function, never in the browser.
-  async function searchBiteshipArea() {
+  // Dynamic Biteship area search.
+  // API key remains securely stored in the Supabase Edge Function.
+  async function searchBiteshipArea(query) {
     const s = await session();
 
     if (!s?.access_token) {
       throw new Error('Silakan login terlebih dahulu.');
     }
 
+    const searchQuery = String(query || '').trim();
+
+    if (searchQuery.length < 2) {
+      throw new Error('Masukkan minimal 2 karakter nama daerah atau kode pos.');
+    }
+
+    if (searchQuery.length > 100) {
+      throw new Error('Kata kunci pencarian maksimal 100 karakter.');
+    }
+
     const { data, error } = await requireClient()
       .functions.invoke('search-biteship-area', {
-        body: {}
+        body: {
+          query: searchQuery
+        }
       });
 
     if (error) {
@@ -273,7 +286,7 @@
       throw new Error(data?.error || 'Pencarian area gagal.');
     }
 
-    return data.areas || [];
+    return Array.isArray(data.areas) ? data.areas : [];
   }
 
   window.BaylosAPI = Object.freeze({
