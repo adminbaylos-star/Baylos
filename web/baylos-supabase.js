@@ -1,4 +1,3 @@
-
 /* Baylos Supabase integration module. Does not override existing demo UI. */
 (function () {
   'use strict';
