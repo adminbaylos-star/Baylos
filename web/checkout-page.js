@@ -319,13 +319,31 @@
       } else {
         status.textContent = `Ditemukan ${shippingOptions.length} pilihan layanan. Pilih jasa kirim dan layanannya. Tarif masih berupa estimasi.`;
       }
-    } catch (error) {
+       } catch (error) {
       shippingOptions = [];
       setCourierOptions([]);
-      status.textContent = error.message || 'Gagal mengambil tarif Biteship.';
+
+      let detail = error.message || 'Gagal mengambil tarif Biteship.';
+
+      try {
+        if (error.context instanceof Response) {
+          const response = error.context.clone();
+          const body = await response.json();
+          detail = `HTTP ${response.status}: ${body.error || JSON.stringify(body)}`;
+        }
+      } catch (_) {
+        // Pertahankan pesan error asli jika respons tidak bisa dibaca.
+      }
+
+      status.textContent = detail;
       $('shipping-estimate').textContent = 'Gagal dihitung';
       $('review-total').textContent = 'Menunggu validasi server';
+      console.error('Baylos shipping error:', error, detail);
     } finally {
+      button.disabled = false;
+      button.textContent = 'Hitung ulang ongkir';
+    }
+    finally {
       button.disabled = false;
       button.textContent = 'Hitung ulang ongkir';
     }
