@@ -3,7 +3,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111827">
   <title>Baylos Admin Command Center</title>
 
@@ -12,25 +12,21 @@
       color-scheme: dark;
       --bg: #0b1120;
       --panel: #151f30;
-      --panel-light: #1c293d;
+      --panel2: #1c293d;
       --border: #2b3b52;
       --text: #edf2f7;
       --muted: #9caec3;
       --accent: #38bdf8;
-      --success: #34d399;
-      --danger: #fb7185;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       min-height: 100vh;
-      padding: 24px 16px 48px;
+      padding: 24px 16px 45px;
       background:
-        radial-gradient(circle at top right, #172c48 0, transparent 38%),
+        radial-gradient(circle at top right, #172c48, transparent 38%),
         var(--bg);
       color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
@@ -42,16 +38,13 @@
       margin: auto;
     }
 
-    header {
-      margin-bottom: 26px;
-    }
+    header { margin-bottom: 24px; }
 
     .brand {
       color: var(--accent);
       font-size: 13px;
       font-weight: bold;
       letter-spacing: 2px;
-      text-transform: uppercase;
     }
 
     h1 {
@@ -61,8 +54,8 @@
 
     .subtitle {
       color: var(--muted);
-      line-height: 1.6;
       font-size: 14px;
+      line-height: 1.6;
     }
 
     .identity {
@@ -72,7 +65,6 @@
       border: 1px solid var(--border);
       border-radius: 9px;
       background: var(--panel);
-      color: #cbd5e1;
       font-size: 13px;
     }
 
@@ -87,19 +79,10 @@
       line-height: 1.5;
     }
 
-    .status.error {
-      border-color: #9f354b;
-      color: #fda4af;
-    }
+    .status.error, .shipping-status.error { color: #fda4af; }
+    .status.success, .shipping-status.success { color: #6ee7b7; }
 
-    .status.success {
-      border-color: #176b55;
-      color: #6ee7b7;
-    }
-
-    .hide {
-      display: none !important;
-    }
+    .hide { display: none !important; }
 
     .section-title {
       margin: 28px 0 14px;
@@ -118,7 +101,7 @@
       padding: 19px;
       border: 1px solid var(--border);
       border-radius: 13px;
-      background: linear-gradient(145deg, var(--panel-light), var(--panel));
+      background: linear-gradient(145deg, var(--panel2), var(--panel));
       color: var(--text);
       text-decoration: none;
       transition: border-color .2s, transform .2s;
@@ -164,7 +147,6 @@
     .search-row {
       display: flex;
       gap: 9px;
-      width: 100%;
     }
 
     .search-input {
@@ -179,9 +161,7 @@
       font-size: 14px;
     }
 
-    .search-input:focus {
-      border-color: var(--accent);
-    }
+    .search-input:focus { border-color: var(--accent); }
 
     button {
       padding: 12px 17px;
@@ -194,14 +174,8 @@
       cursor: pointer;
     }
 
-    button:hover {
-      background: #0369a1;
-    }
-
-    button:disabled {
-      opacity: .55;
-      cursor: not-allowed;
-    }
+    button:hover { background: #0369a1; }
+    button:disabled { opacity: .55; cursor: not-allowed; }
 
     .shipping-status {
       min-height: 22px;
@@ -209,14 +183,6 @@
       color: var(--muted);
       font-size: 13px;
       line-height: 1.5;
-    }
-
-    .shipping-status.error {
-      color: #fda4af;
-    }
-
-    .shipping-status.success {
-      color: #6ee7b7;
     }
 
     .area-results {
@@ -257,34 +223,15 @@
     }
 
     @media (max-width: 520px) {
-      body {
-        padding: 18px 12px 35px;
-      }
-
-      .search-row {
-        flex-direction: column;
-      }
-
-      .search-row button {
-        width: 100%;
-        min-height: 44px;
-      }
-
-      .admin-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 9px;
-      }
-
-      .admin-tile {
-        min-height: 112px;
-        padding: 14px;
-      }
+      body { padding: 18px 12px 35px; }
+      .search-row { flex-direction: column; }
+      .search-row button { width: 100%; min-height: 44px; }
+      .admin-grid { grid-template-columns: 1fr 1fr; gap: 9px; }
+      .admin-tile { min-height: 112px; padding: 14px; }
     }
 
     @media (max-width: 350px) {
-      .admin-grid {
-        grid-template-columns: 1fr;
-      }
+      .admin-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -296,13 +243,14 @@
       <h1>Admin Command Center</h1>
       <div class="subtitle">
         Pusat pengelolaan marketplace Baylos.
-        Gunakan menu di bawah untuk mengelola operasional.
       </div>
-      <div id="identity" class="identity">Memeriksa akun administrator...</div>
+      <div id="identity" class="identity">
+        Memeriksa akun administrator...
+      </div>
     </header>
 
     <div id="status" class="status">
-      Memeriksa autentikasi dan hak akses admin...
+      Memuat konfigurasi Supabase...
     </div>
 
     <section id="adminTools" class="hide">
@@ -311,7 +259,7 @@
       <div class="admin-grid">
         <a class="admin-tile" href="admin-inventory.html">
           <strong>Produk &amp; Katalog</strong>
-          <span>Kelola informasi dan katalog produk marketplace.</span>
+          <span>Kelola informasi dan katalog produk.</span>
         </a>
 
         <a class="admin-tile" href="admin-orders.html">
@@ -321,7 +269,7 @@
 
         <a class="admin-tile" href="admin-inventory.html">
           <strong>Stok &amp; Varian</strong>
-          <span>Kelola persediaan, ukuran, dan varian produk.</span>
+          <span>Kelola persediaan, ukuran, dan varian.</span>
         </a>
 
         <a class="admin-tile" href="admin-orders.html">
@@ -346,18 +294,17 @@
 
         <a class="admin-tile" href="../index.html">
           <strong>Lihat Marketplace</strong>
-          <span>Buka halaman utama marketplace Baylos.</span>
+          <span>Buka halaman utama marketplace.</span>
         </a>
 
         <a class="admin-tile" href="my-orders.html">
           <strong>Pesanan Saya</strong>
-          <span>Lihat halaman pesanan akun yang sedang login.</span>
+          <span>Lihat halaman pesanan akun yang login.</span>
         </a>
       </div>
 
       <section id="biteshipPanel" class="shipping-panel">
         <h2>Pencarian Area Biteship</h2>
-
         <p class="shipping-description">
           Cari kecamatan, kota, kabupaten, provinsi, atau kode pos
           tujuan pengiriman di Indonesia.
@@ -373,43 +320,155 @@
             autocomplete="off"
             aria-label="Nama daerah atau kode pos"
           >
-
           <button id="searchBiteshipButton" type="button">
             Cari Area
           </button>
         </div>
 
-        <div
-          id="biteshipStatus"
-          class="shipping-status"
-          role="status"
-          aria-live="polite"
-        ></div>
-
-        <div
-          id="biteshipResults"
-          class="area-results"
-          aria-live="polite"
-        ></div>
+        <div id="biteshipStatus" class="shipping-status"
+             role="status" aria-live="polite"></div>
+        <div id="biteshipResults" class="area-results"
+             aria-live="polite"></div>
       </section>
     </section>
 
-    <footer>
-      Baylos Admin Command Center
-    </footer>
+    <footer>Baylos Admin Command Center</footer>
   </main>
 
-  <!-- Supabase client -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    (function () {
+      'use strict';
 
-  <!-- Konfigurasi dan integrasi Baylos -->
-  <script src="web/baylos-supabase-config.js"></script>
-  <script src="web/baylos-supabase.js"></script>
+      const status = document.getElementById('status');
+      const identity = document.getElementById('identity');
+      const adminTools = document.getElementById('adminTools');
 
-  <!-- Pemeriksaan akses administrator -->
-  <script src="admin-dashboard.js"></script>
+      function showStatus(message, error) {
+        status.textContent = message;
+        status.className = 'status' + (error ? ' error' : '');
+      }
 
-  <!-- Pencarian area Biteship -->
+      function loadScript(url) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = url;
+          script.onload = () => resolve(url);
+          script.onerror = () => {
+            script.remove();
+            reject(new Error('File tidak ditemukan: ' + url));
+          };
+          document.head.appendChild(script);
+        });
+      }
+
+      async function loadFromCandidates(paths, check) {
+        let lastError;
+
+        for (const path of paths) {
+          try {
+            await loadScript(path);
+            if (!check || check()) return path;
+          } catch (error) {
+            lastError = error;
+          }
+        }
+
+        throw lastError || new Error('File JavaScript tidak berhasil dimuat.');
+      }
+
+      async function initialize() {
+        try {
+          showStatus('Memuat library Supabase...', false);
+
+          await loadScript(
+            'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'
+          );
+
+          if (!window.supabase?.createClient) {
+            throw new Error('Library Supabase gagal dimuat.');
+          }
+
+          showStatus('Memuat konfigurasi Supabase...', false);
+
+          await loadFromCandidates(
+            [
+              'web/baylos-supabase-config.js',
+              './web/baylos-supabase-config.js',
+              'baylos-supabase-config.js',
+              './baylos-supabase-config.js',
+              '../web/baylos-supabase-config.js'
+            ],
+            () => !!window.BAYLOS_SUPABASE_CONFIG
+          );
+
+          showStatus('Memuat integrasi Baylos...', false);
+
+          await loadFromCandidates(
+            [
+              'web/baylos-supabase.js',
+              './web/baylos-supabase.js',
+              'baylos-supabase.js',
+              './baylos-supabase.js',
+              '../web/baylos-supabase.js'
+            ],
+            () => !!window.BaylosAPI
+          );
+
+          if (!window.BaylosAPI?.ready) {
+            throw new Error(
+              'Konfigurasi Supabase terbaca, tetapi belum valid. ' +
+              'Periksa URL dan Publishable Key di baylos-supabase-config.js.'
+            );
+          }
+
+          showStatus('Memeriksa sesi login...', false);
+
+          const session = await window.BaylosAPI.session();
+
+          if (!session?.user) {
+            identity.textContent = 'Belum login';
+            showStatus(
+              'Silakan masuk melalui halaman marketplace sebelum membuka Admin Command Center.',
+              true
+            );
+            return;
+          }
+
+          showStatus('Memeriksa hak akses administrator...', false);
+
+          const profile = await window.BaylosAPI.profile();
+
+          if (profile?.user_role !== 'admin') {
+            identity.textContent =
+              profile?.full_name || session.user.email || 'Pengguna';
+            showStatus(
+              'Akses ditolak. Akun ini bukan admin menurut profil Supabase.',
+              true
+            );
+            return;
+          }
+
+          identity.textContent =
+            (profile.full_name || session.user.email) +
+            ' · Administrator';
+
+          adminTools.classList.remove('hide');
+          showStatus('Akses admin terverifikasi.', false);
+
+        } catch (error) {
+          console.error('Baylos admin initialization:', error);
+          identity.textContent = 'Koneksi belum siap';
+          showStatus(
+            error?.message || 'Gagal memuat halaman administrator.',
+            true
+          );
+        }
+      }
+
+      initialize();
+    })();
+  </script>
+
   <script>
     (function () {
       'use strict';
@@ -419,11 +478,10 @@
       const status = document.getElementById('biteshipStatus');
       const results = document.getElementById('biteshipResults');
 
-      if (!button || !input || !status || !results) return;
-
       function showStatus(message, type) {
         status.textContent = message;
-        status.className = 'shipping-status' + (type ? ' ' + type : '');
+        status.className =
+          'shipping-status' + (type ? ' ' + type : '');
       }
 
       function addText(parent, tag, value) {
@@ -432,19 +490,7 @@
           value === null || value === undefined || value === ''
             ? '-'
             : String(value);
-
         parent.appendChild(element);
-        return element;
-      }
-
-      function getAreaName(area) {
-        return (
-          area.name ||
-          area.administrative_division_level_3_name ||
-          area.administrative_division_level_2_name ||
-          area.administrative_division_level_1_name ||
-          'Area tanpa nama'
-        );
       }
 
       function renderAreas(areas) {
@@ -455,31 +501,28 @@
           return;
         }
 
-        areas.forEach(function (area) {
+        areas.forEach(area => {
           const card = document.createElement('article');
           card.className = 'area-card';
 
-          addText(card, 'strong', getAreaName(area));
+          addText(
+            card,
+            'strong',
+            area.name ||
+            area.administrative_division_level_3_name ||
+            area.administrative_division_level_2_name ||
+            'Area tanpa nama'
+          );
 
-          const addressParts = [
+          const region = [
             area.administrative_division_level_3_name,
             area.administrative_division_level_2_name,
             area.administrative_division_level_1_name,
             area.country_name
-          ].filter(Boolean);
+          ].filter(Boolean).join(', ');
 
-          addText(
-            card,
-            'p',
-            'Wilayah: ' + (addressParts.join(', ') || '-')
-          );
-
-          addText(
-            card,
-            'p',
-            'Kode pos: ' + (area.postal_code || '-')
-          );
-
+          addText(card, 'p', 'Wilayah: ' + (region || '-'));
+          addText(card, 'p', 'Kode pos: ' + (area.postal_code || '-'));
           addText(
             card,
             'p',
@@ -499,17 +542,14 @@
         const query = input.value.trim();
 
         if (query.length < 2) {
-          showStatus(
-            'Masukkan minimal 2 karakter nama daerah atau kode pos.',
-            'error'
-          );
+          showStatus('Masukkan minimal 2 karakter.', 'error');
           input.focus();
           return;
         }
 
         if (!window.BaylosAPI?.searchBiteshipArea) {
           showStatus(
-            'Modul pencarian Baylos belum siap. Periksa file integrasi.',
+            'Integrasi Baylos belum siap. Muat ulang halaman setelah konfigurasi diperbaiki.',
             'error'
           );
           return;
@@ -521,12 +561,14 @@
         showStatus('Sedang mencari area melalui Biteship...', '');
 
         try {
-          const areas = await window.BaylosAPI.searchBiteshipArea(query);
+          const areas =
+            await window.BaylosAPI.searchBiteshipArea(query);
+
           renderAreas(Array.isArray(areas) ? areas : []);
         } catch (error) {
-          console.error('Biteship area search error:', error);
+          console.error('Biteship search:', error);
           showStatus(
-            error?.message || 'Pencarian area gagal. Silakan coba lagi.',
+            error?.message || 'Pencarian area gagal.',
             'error'
           );
         } finally {
@@ -537,7 +579,7 @@
 
       button.addEventListener('click', searchAreas);
 
-      input.addEventListener('keydown', function (event) {
+      input.addEventListener('keydown', event => {
         if (event.key === 'Enter') {
           event.preventDefault();
           searchAreas();
